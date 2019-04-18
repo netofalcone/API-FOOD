@@ -1,8 +1,9 @@
 <template>
     <div class="content">
         <router-view> </router-view>
-    </div>
 
+    </div>
+    
 </template>
 
 <script>
@@ -14,10 +15,9 @@ export default {
 
 <style>
 .content{
-grid-area: content;
- background: linear-gradient(to right, #e6e6e6,  #c2c1c1);
-padding: 10px;
-
+    grid-area: content;
+    background: linear-gradient(to right, #e6e6e6,  #c2c1c1);
+    padding: 15px;
 }
 
 </style>

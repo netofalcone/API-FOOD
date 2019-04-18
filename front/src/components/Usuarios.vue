@@ -1,13 +1,11 @@
 <template>
 
 <div>     
- 
 
 <div class="admin-pages">
     <PageTitle main="Painel Administrativo"     sub="Food Delivery" />  
 
 </div>
-
 
  <form @submit.prevent="salvar">
 

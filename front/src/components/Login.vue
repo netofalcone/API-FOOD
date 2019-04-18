@@ -1,22 +1,23 @@
 <template>
     <div class="Login">
-        <Login
+        <login-component
                 :errorMessage="errorMessage"
                 v-on:loginCredentials="checkCredentials"
                 passwordPattern=".{2,8}"
                 passwordMessage="Greater than 1 and less than 9"
-        ></Login>
+        ></login-component>
     </div>
 </template>
 
 <script>
+    import LoginComponent from './LoginComponent'
     export default {
         name: "Login",
         components: {
-            logar,
-            'Logar': logar
+            LoginComponent,
+            'login-component': LoginComponent
         },
-        data() {
+        data () {
             return {
                 errorMessage: ''
             }

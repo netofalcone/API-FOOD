@@ -17,7 +17,6 @@
 <script>
 
 import {mapState} from 'vuex'
-import Restaurant from '@/config/restaurants'
 
 import Header from '@/components/Header'
 import Menu from '@/components/Menu'
@@ -49,8 +48,7 @@ export default {
   #app {
 	
 	  -moz-osx-font-smoothing: grayscale;
-
-	  height: 90vh;
+	  height: 100vh;
 	  display: grid;
 
 	  grid-template-rows: 90px 1fr 40px;

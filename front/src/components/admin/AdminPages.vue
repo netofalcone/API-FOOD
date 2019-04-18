@@ -3,25 +3,25 @@
 <div>     
  
 
-    <div class="admin-pages">
-        <PageTitle main="Painel Administrativo"     sub="Food Delivery" />
+<div class="admin-pages">
+    <PageTitle main="Painel Administrativo"     sub="Food Delivery" />  
 
-    </div>
+</div>
 
 
-     <form @submit.prevent="salvar">
+ <form @submit.prevent="salvar">
 
-          <label>Nome</label>
-              <input type="text" placeholder="Nome" v-model="usuario.name">
-              <label>Email</label>
-              <input type="email" placeholder="Digite seu melhor email" v-model="usuario.email">
-              <label>Senha</label>
-              <input type="password" placeholder="Minimo de 6 caracteres" v-model="usuario.password">
+      <label>Nome</label>
+          <input type="text" placeholder="Nome" v-model="usuario.name">
+          <label>Email</label>
+          <input type="email" placeholder="Digite seu melhor email" v-model="usuario.email">
+          <label>Senha</label>
+          <input type="password" placeholder="Minimo de 6 caracteres" v-model="usuario.password">
 
-              <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
+          <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
 
       </form>
-      <hr>
+      <hr> 
 
        <table>
 
@@ -29,8 +29,8 @@
 
           <tr >
             <th>NOME</th>
-            <th>EMAIL</th>
-
+            <th>EMAIL</th>         
+          
           </tr>
 
         </thead>
@@ -39,10 +39,10 @@
 
           <tr  v-for="usuario of usuarios" :key="usuario.id">
 
-
+      
             <td>{{ usuario.name }}</td>
             <td>{{ usuario.email }}</td>
-
+          
             <td>
               <button class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
               <button class="lixo"><i class="material-icons">delete_sweep</i></button>
@@ -51,7 +51,7 @@
           </tr>
 
         </tbody>
-
+      
       </table>
       <hr>
 
