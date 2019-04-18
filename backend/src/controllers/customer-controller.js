@@ -50,10 +50,6 @@ exports.post = async (req, res, next) => {
 };
 
 
-
-
-
-
 exports.authenticate = async(req, res, next) => {
     try {
         const customer = await repository.authenticate({

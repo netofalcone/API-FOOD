@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
 
-
 const app = express();
 const router = express.Router();
 
@@ -18,6 +17,7 @@ const Product = require('./models/Product')
 const Customer = require('./models/customer')
 const Order = require('./models/order')
 const Restaurant = require('./models/restaurant')
+const user = require('./models/user')
 
 
 // Carregar as rotas
@@ -26,6 +26,7 @@ const productRoute = require('./routes/product-route')
 const restaurantRoute = require('./routes/restaurant-route')
 const customerRoute = require('./routes/customer-route')
 const orderRoute = require('./routes/order-route')
+const userRoute = require('./routes/user-route')
 
 
 app.use(bodyParser.json());
@@ -48,6 +49,7 @@ app.use('/products', productRoute);
 app.use('/customers', customerRoute);
 app.use('/orders', orderRoute);
 app.use('/restaurants', restaurantRoute);
+app.use('/user', userRoute);
 
 
 module.exports = app;

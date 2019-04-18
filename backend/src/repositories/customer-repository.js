@@ -7,11 +7,6 @@ exports.create = async(data) => {
     await customer.save();
 }
 
-
-
-
-
-
 exports.authenticate = async (data) => {
     const res = await Customer.findOne({
         email: data.email,
@@ -19,8 +14,6 @@ exports.authenticate = async (data) => {
     });
     return res;
 };
-
-
 
 exports.get = async () => {
     const res = await Product.find({

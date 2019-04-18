@@ -42,7 +42,6 @@ exports.getById = async (req, res, next) =>  {
 }
 
 
-
 exports.getByTag =async  (req, res, next) => {
     try {
         const data = await repository.getByTag(req.params.tag);
@@ -53,10 +52,6 @@ exports.getByTag =async  (req, res, next) => {
         });
     }
 }
-
-
-
-
 
 
 exports.post =  async (req, res, next) => {
@@ -83,9 +78,6 @@ exports.post =  async (req, res, next) => {
 
     });    
 }};
-
-
-
 
 
 exports.put = async(req, res, next) => {
