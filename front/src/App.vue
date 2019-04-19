@@ -1,17 +1,16 @@
 <template>
 
-<div id="app" :class="{'hide-menu': !isMenuVisible}">
+	<div id="app" :class="{'hide-menu': !isMenuVisible}">
 
-	 <Header  title="Food Delivery" 
-	:hideToggle="false"
-	:hideUserDropdown="false"/>
-	<Menu />
-	<Content />
-	<Footer />
+		 <Header  title="Food Delivery"
+		:hideToggle="false"
+		:hideUserDropdown="false"/>
+		<Menu />
+		<Content />
+		<Footer />
 
-	
-	
- </div>
+	 </div>
+
 </template>
 
 <script>
@@ -25,12 +24,9 @@ import Footer from '@/components/Footer'
 
 export default {
 
-
 	name: "App",
 	components: {Header, Menu, Content, Footer},
 	computed: mapState(['isMenuVisible'])
-
-
 
 }
 </script>
@@ -59,14 +55,12 @@ export default {
 	  "menu footer"
   }
 
-
-#app.hide-menu {
+  #app.hide-menu {
 	 grid-template-areas:
 	  "header header"
 	  "content content"
 	  "footer footer"
 }
-
 
 </style>
 

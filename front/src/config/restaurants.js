@@ -1,10 +1,9 @@
 import { http } from './config'
 
 
-export default { 
+export default {
 
- listar:() => {
-     return http.get('restaurants')
- }
-
+     listar:() => {
+         return http.get('restaurants')
+     }
 }

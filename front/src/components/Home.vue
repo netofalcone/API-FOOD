@@ -7,23 +7,24 @@
 
    <div >
         <router-link to="/">
-            <strong>
-                <a href=""> Inicio</a> </strong>
+            <strong><a href=""> Inicio</a> </strong>
         </router-link>
 
        <router-link to="/login">
-           <strong>  <a href="">Login</a> </strong>
+           <strong> <a href="">Login</a> </strong>
        </router-link>
 
        <router-link to="/registro">
-           <strong>  <a href="">Registro</a> </strong>
+           <strong> <a href="">Registro</a> </strong>
        </router-link>
 
         <router-link to="/restaurantes">
             <strong>  <a href="">Restaurantes</a> </strong>
         </router-link>
 
-        <strong>  <a href="">Produtos</a> </strong>
+       <router-link to="/produto">
+            <strong>  <a href="">Produtos</a> </strong>
+       </router-link>
 
        <img class="materialboxed" src="@/imagem/ifood.png">
        <!-- <img class="materialboxed" data-caption="A picture of a way with a group of trees in a park" width="250" src="https://lorempixel.com/800/400/nature/4"> -->

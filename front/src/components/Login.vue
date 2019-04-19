@@ -1,4 +1,5 @@
 <template>
+
     <div class="Login">
         <login-component
                 :errorMessage="errorMessage"
@@ -7,6 +8,7 @@
                 passwordMessage="Greater than 1 and less than 9"
         ></login-component>
     </div>
+
 </template>
 
 <script>
@@ -33,5 +35,11 @@
 </script>
 
 <style scoped>
+    .Login {
+        padding-top: 50px;
+        padding-right: 100px;
+        padding-bottom: 50px;
+        padding-left: 10px;
+    }
 
 </style>

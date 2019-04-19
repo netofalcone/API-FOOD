@@ -6,7 +6,6 @@ export default {
         return http.get('products')
     },
 
-
     salvar:(produto) => {
         return http.post('products', produto )
     }

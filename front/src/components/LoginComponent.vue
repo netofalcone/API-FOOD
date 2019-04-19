@@ -1,44 +1,56 @@
 <template>
- <div class="container">
-  <div class="row">
-   <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-    <div class="panel panel-primary">
-     <div class="panel-heading">
-      <h3 class="panel-title">Login</h3>
-     </div>
 
-     <div class="panel-body">
-      <form @submit.prevent="submitLogin">
-       <div class="form-group has-feedback" v-bind:class="[emailSuccessClass]">
-        <label for="email" class="control-label sr-only">Add your email address.</label>
-        <input ref="txtEmail" type="email" class="form-control" @input="checkEmailValidation" id="email" placeholder="Email" autofocus required>
-        <span v-bind:class="[emailIconClass]"></span>
-       </div>
+ <div class="LoginComponet">
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-xs-20 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+     <div class="panel panel-danger">
+      <div class="panel-heading">
+       <h3 class="panel-title" >Login</h3>
+      </div>
 
-       <div class="form-group has-feedback" v-bind:class="[passwordSuccessClass]">
-        <label for="password" class="control-label sr-only">Add your password.</label>
-        <input ref="txtPassword" type="password" class="form-control" @input="checkPasswordValidation" id="password" placeholder="Password" required
-               :pattern="passwordPattern" aria-describedby="passwordHelpSpan">
-        <span v-bind:class="[passwordIconClass]"></span>
-        <small id="passwordHelpSpan">{{ passwordMessage }}</small>
-       </div>
+      <div class="panel-body">
+       <form @submit.prevent="submitLogin">
+        <div class="form-group has-feedback" v-bind:class="[emailSuccessClass]">
+         <label for="email" class="control-label sr-only">Add your email address.</label>
+         <input ref="txtEmail" type="email" class="form-control" @input="checkEmailValidation" id="email" placeholder="Email" autofocus required>
+         <span v-bind:class="[emailIconClass]"></span>
+        </div>
 
-       <div v-if="errorMessage" class="text-center text-danger">{{ errorMessage }}</div>
-       <div class="checkbox">
-        <label>
-         <input type="checkbox" id="chkRemember" v-model="rememberMe">
-         Remember Me
-        </label>
-        <button :disabled="submitBtnDisabled" class="btn btn-primary pull-right">Sign In</button>
-        <button type="submit" class="btn btn-primary">Voltar</button>
-       </div>
-      </form>
+        <div class="form-group has-feedback" v-bind:class="[passwordSuccessClass]">
+         <label for="password" class="control-label sr-only">Add your password.</label>
+         <input ref="txtPassword" type="password" class="form-control" @input="checkPasswordValidation" id="password" placeholder="Password" required
+                :pattern="passwordPattern" aria-describedby="passwordHelpSpan">
+         <span v-bind:class="[passwordIconClass]"></span>
+         <small id="passwordHelpSpan">{{ passwordMessage }}</small>
+        </div>
 
+        <div v-if="errorMessage" class="text-center text-danger">{{ errorMessage }}</div>
+        <div class="checkbox">
+         <label>
+          <input type="checkbox" id="chkRemember" v-model="rememberMe">
+          Remember Me
+         </label><br>
+         <button :disabled="submitBtnDisabled" class="btn btn-primary pull-right">Sign In</button>
+
+         <div class="col-md-3 ">
+          <a href="/">
+           <button type="button" class="btn btn-primary">
+            Voltar ao Menu
+           </button>
+          </a>
+         </div>
+
+        </div>
+       </form>
+
+      </div>
      </div>
     </div>
    </div>
   </div>
  </div>
+
 </template>
 
 <script>
@@ -53,7 +65,7 @@
             passwordMessage: {
                 type: String,
                 required: false,
-                default: "Password length must be greater than 4 but not longer than 10"
+                default: "O comprimento da senha deve ser maior que 4 mas não maior que 10"
             },
             passwordPattern: {
                 type: String,
@@ -77,7 +89,7 @@
             this.$refs.txtEmail.value = email ? email.pop() : ''
             this.$refs.txtPassword.value = password ? password.pop() : ''
             if (email) this.submitBtnDisabled = false
-            console.log('We just check to see if there were cookies: ' + document.cookie)
+            console.log('Nós apenas verificamos se havia cookies: ' + document.cookie)
         },
         methods: {
             checkEmailValidation: function () {
@@ -106,18 +118,18 @@
                 let email = this.$refs.txtEmail.value.trim()
                 let password = this.$refs.txtPassword.value.trim()
 
-                // COOKIE FUNCTIONS!
+                // FUNÇÕES DE COOKI!
                 // 'key=value; expires=current dateTime in UTC; path=/'
                 if(this.rememberMe) {
                     let d = new Date()
                     d.setTime(d.getTime() + (180*24*60*60*1000)) //
                     document.cookie = 'email=' + email + ';expires=' + d.toUTCString() + ';path=/'
                     document.cookie = 'password=' + password + ';expires=' + d.toUTCString() + ';path=/'
-                    console.log('We just set the cookies: ' + document.cookie)
+                    console.log('Nós apenas configuramos os cookies: ' + document.cookie)
                 } else {
                     document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
                     document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-                    console.log('We just deleted the cookies: ' + document.cookie)
+                    console.log('Acabamos de excluir os cookies:' + document.cookie)
                 }
 
                 this.$emit('loginCredentials',
@@ -132,5 +144,8 @@
 </script>
 
 <style scoped>
+.LoginComponet{
+
+}
 
 </style>

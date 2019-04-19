@@ -2,26 +2,24 @@
 
     <aside class="menu" v-show="isMenuVisible"> 
 
-  <span class="restaurantes"> <h3> Restaurantes </h3> </span>
+              <span class="restaurantes"> <h3> Restaurantes </h3> </span>
 
-<table class="restaurants">
+            <table class="restaurants">
 
-        <tbody >
+                    <tbody >
 
-          <tr  v-for="restaurant of restaurants" :key="restaurant.id">
-           <h4> <td >{{restaurant.name}}</td> </h4>
-           </tr>
+                      <tr  v-for="restaurant of restaurants" :key="restaurant.id">
+                       <h4> <td >{{restaurant.name}}</td> </h4>
+                       </tr>
 
-        </tbody>
-      
-</table>
+                    </tbody>
+
+            </table>
 
 
     </aside>
 
 
-   
-    
 </template>
 
 <script>

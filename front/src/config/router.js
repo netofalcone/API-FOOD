@@ -5,7 +5,6 @@ import Home from '@/components/Home'
 import AdminPages from '@/components/admin/AdminPages'
 
 import Login from '@/components/Login'
-
 import Registro from '@/components/Registro'
 
 import Restaurantes from '@/components/Restaurantes'
@@ -49,8 +48,8 @@ const routes = [
     },
 
     {
-        name: 'Produtos',
-        path: '/produtos',
+        name: 'produto',
+        path: '/produto',
         component: Produtos
 
     },
