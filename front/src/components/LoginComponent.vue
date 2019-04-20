@@ -31,7 +31,7 @@
           <input type="checkbox" id="chkRemember" v-model="rememberMe">
           Remember Me
          </label><br>
-         <button :disabled="submitBtnDisabled" class="btn btn-primary pull-right">Sign In</button>
+         <button :disabled="submitBtnDisabled" class="btn btn-primary pull-right">Entrar</button>
 
          <div class="col-md-3 ">
           <a href="/">

@@ -1,9 +1,7 @@
 'use strict';
 
-
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/product-repository');
-
 
 exports.get = async(req, res, next) => {
     try {
@@ -14,9 +12,7 @@ exports.get = async(req, res, next) => {
             message: 'Falha ao processar sua requisição'
         });
     }
-}
-
-
+};
 
 exports.getBySlug = async (req, res, next) => {
     try {
@@ -27,8 +23,7 @@ exports.getBySlug = async (req, res, next) => {
             message: 'Falha ao processar sua requisição'
         });
     }
-}
-
+};
 
 exports.getById = async (req, res, next) =>  {
     try {
@@ -39,8 +34,7 @@ exports.getById = async (req, res, next) =>  {
             message: 'Falha ao processar sua requisição'
         });
     }
-}
-
+};
 
 exports.getByTag =async  (req, res, next) => {
     try {
@@ -51,8 +45,7 @@ exports.getByTag =async  (req, res, next) => {
             message: 'Falha ao processar sua requisição'
         });
     }
-}
-
+};
 
 exports.post =  async (req, res, next) => {
     let contract = new ValidationContract();
@@ -79,7 +72,6 @@ exports.post =  async (req, res, next) => {
     });    
 }};
 
-
 exports.put = async(req, res, next) => {
     try {
         await repository.update(req.params.id, req.body);
@@ -92,8 +84,6 @@ exports.put = async(req, res, next) => {
         });
     }
 };
-
-
 
 exports.delete = async(req, res, next) => {
     try {

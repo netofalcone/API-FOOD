@@ -13,27 +13,26 @@ mongoose.connect(config.connectionString);
 module.exports = mongoose;
 
 // Carregar Models
-const Product = require('./models/Product')
-const Customer = require('./models/customer')
-const Order = require('./models/order')
-const Restaurant = require('./models/restaurant')
-const user = require('./models/user')
-
+const Product = require('./models/Product');
+const Customer = require('./models/customer');
+const Order = require('./models/order');
+const Restaurant = require('./models/restaurant');
+const Registro = require('./models/registro');
 
 // Carregar as rotas
-const indexRoute = require('./routes/index-route')
-const productRoute = require('./routes/product-route')
-const restaurantRoute = require('./routes/restaurant-route')
-const customerRoute = require('./routes/customer-route')
-const orderRoute = require('./routes/order-route')
-const userRoute = require('./routes/user-route')
+const indexRoute = require('./routes/index-route');
+const productRoute = require('./routes/product-route');
+const restaurantRoute = require('./routes/restaurant-route');
+const customerRoute = require('./routes/customer-route');
+const orderRoute = require('./routes/order-route');
+const registroRoute = require('./routes/registro-route');
 
 
 app.use(bodyParser.json());
 //Todo conteúdo vai ser convertido para json
-
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 //para codificar as urls também
+
 
 // Habilita o CORS
 app.use((req, res, next)=>{
@@ -43,13 +42,11 @@ app.use((req, res, next)=>{
     next();
 });
 
-
 app.use('/', indexRoute);
 app.use('/products', productRoute);
 app.use('/customers', customerRoute);
 app.use('/orders', orderRoute);
 app.use('/restaurants', restaurantRoute);
-app.use('/user', userRoute);
-
+app.use('/registros',registroRoute);
 
 module.exports = app;
