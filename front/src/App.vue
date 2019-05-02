@@ -1,21 +1,25 @@
 <template>
 
-	<div id="app" :class="{'hide-menu': !isMenuVisible}">
+<div id="app" :class="{'hide-menu': !isMenuVisible || !usuario}">
 
-		 <Header  title="Food Delivery"
-		:hideToggle="false"
-		:hideUserDropdown="false"/>
-		<Menu />
-		<Content />
-		<Footer />
+	 <Header  title="Food Delivery" 
+	:hideToggle="!usuario"
+	:hideUserDropdown="!usuario"/>
+	<Menu v-if="usuario"/>
+	<Content />
+	<Footer />  
 
-	 </div>
-
+	
+	
+ </div>
 </template>
 
 <script>
 
 import {mapState} from 'vuex'
+import Restaurant from '@/config/restaurants'
+import axios from "axios"
+import { baseApiUrl, userKey } from "@/config/global"
 
 import Header from '@/components/Header'
 import Menu from '@/components/Menu'
@@ -26,8 +30,45 @@ export default {
 
 	name: "App",
 	components: {Header, Menu, Content, Footer},
-	computed: mapState(['isMenuVisible'])
+	computed: mapState(['isMenuVisible', 'usuario']),
+	data: function() {
+		return {
+			validatingToken: true
+		}
+	},
+	methods: {
+		async validateToken() {
+			this.validatingToken = true
 
+			const json = localStorage.getItem(userKey)
+			const userData = JSON.parse(json)
+			this.$store.commit('setUser', null)
+
+			if(!userData) {
+				this.validatingToken = false
+				this.$router.push({ name: 'auth' })
+				return
+			}
+
+			const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
+
+			if (res.data) {
+				this.$store.commit('setUser', userData)
+
+				if(this.$mq === 'xs' || this.$mq === 'sm') {
+					this.$store.commit('toggleMenu', false)
+				}
+			} else {
+				localStorage.removeItem(userKey)
+				this.$router.push({ name: 'auth' })
+			}
+
+			this.validatingToken = false
+		}
+	},
+	created() {
+		this.validateToken()
+	}
 }
 </script>
 
@@ -44,6 +85,7 @@ export default {
   #app {
 	
 	  -moz-osx-font-smoothing: grayscale;
+
 	  height: 100vh;
 	  display: grid;
 
@@ -55,7 +97,7 @@ export default {
 	  "menu footer"
   }
 
-  #app.hide-menu {
+#app.hide-menu {
 	 grid-template-areas:
 	  "header header"
 	  "content content"

@@ -19,20 +19,6 @@ exports.get = async(req, res, next) => {
 
 
 
-exports.get = async(req, res, next) => {
-    Restaurant
-        .find({})   .then(data => {
-        res.status(200).send(data);
-    }).catch(e=> {
-        res.status(400).send(e);
-    });
-}
-
-
-
-
-
-
 exports.post = async (req, res, next) => {
     let contract = new ValidationContract();
     contract.hasMinLen(req.body.name, 3, 'O nome deve conter pelo menos 3 caracteres');

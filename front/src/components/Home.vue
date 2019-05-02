@@ -6,28 +6,22 @@
     -->
 
    <div >
-        <router-link to="/">
-            <strong><a href=""> Inicio</a> </strong>
-        </router-link>
+     <div class="menu">  
+         <ul>
 
-       <router-link to="/login">
-           <strong> <a href="">Login</a> </strong>
-       </router-link>
+             <li>   <router-link to="/auth"> <strong> <a href="">Entra</a> </strong>   </router-link>   </li>
+             <li>   <router-link to="/restaurantes">  <strong> <a href="">Restaurantes</a> </strong></router-link>  </li>
+             <li>   <router-link to="/produtos"> <strong> <a href="">Produtos</a> </strong>   </router-link>   </li>
+             <li>   <router-link to="/usuarios"> <strong> <a href="">Usuários</a> </strong>   </router-link>   </li>
 
-       <router-link to="/registro">
-           <strong> <a href="">Registro</a> </strong>
-       </router-link>
+            </ul>
+    </div>
 
-        <router-link to="/restaurantes">
-            <strong>  <a href="">Restaurantes</a> </strong>
-        </router-link>
 
-       <router-link to="/produto">
-            <strong>  <a href="">Produtos</a> </strong>
-       </router-link>
+   <img class="materialboxed" src="@/imagem/ifood.png"> 
+   <!-- <img class="materialboxed" data-caption="A picture of a way with a group of trees in a park" width="250" src="https://lorempixel.com/800/400/nature/4"> -->
 
-       <img class="materialboxed" src="@/imagem/ifood.png">
-       <!-- <img class="materialboxed" data-caption="A picture of a way with a group of trees in a park" width="250" src="https://lorempixel.com/800/400/nature/4"> -->
+   
 </div>
 
 </template>
@@ -48,33 +42,46 @@ export default {
 
 <style>
 
-h1{
-    font-size: 24px;
-    display: inline;
-    margin-right: 24px;
-}
+    img {
+        margin: 0%;
+        width: 100%;
+        height: 100%;
+    }
+    a{
+        margin-right: 10px;
+        margin-left: 10px;
+        color: rgb(247, 49, 49);
 
+         color: black;
 
-img {
-    margin: 0%;
-    width: 100%
-}
-a{
-    margin-right: 20px;
-    margin-left: 20px;
-    color: rgb(247, 49, 49);
-     color: black;
-}
- a:hover{
-    margin-right: 20px;
-    margin-left: 20px;
-     text-decoration: none;
-     color: black;
-  
-}
+    }
+     a:hover{
+        margin-right: 20px;
+       margin-left: 20px;
+         text-decoration: none;
+         color: black;
+    }
 
-strong {
-    color: rgb(252, 227, 0);
-}
+    strong {
+        color: rgb(252, 227, 0);
+    }
 
+    .menu {
+       float: right;
+
+    }
+
+    .menu ul,
+    .menu li{
+       margin: 0;
+       line-height: 60px;
+       padding: 0;
+
+    }
+    .menu li {
+        float: left;
+        padding-left: 10px;
+        line-height: 50px;
+
+    }
 </style>

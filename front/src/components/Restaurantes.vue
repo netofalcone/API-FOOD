@@ -1,64 +1,68 @@
 <template>
 
 <div>    
-       <div >
-        <router-link to="/">
-            <strong>  <a href=""> Inicio</a> </strong>
-            <strong><a href="">Restaurantes</a> </strong>
-            <strong><a href="">Produtos</a> </strong>
-        </router-link>
-       </div>
-       <hr>
+   <div >
 
-    <div class="admin-pages">
-        <PageTitle main="Restaurantes cadastrados"     sub="Food Delivery" />
+       <router-link to="/">   <strong>  <a href=""> Inicio</a> </strong> </router-link>
+       <router-link to="/produtos"> <strong><a href="">Produtos</a> </strong></router-link>
+       <router-link to="/usuarios"> <strong> <a href="">Usuários</a> </strong>   </router-link>
 
-    </div>
+   </div> 
+   <hr>
+ 
 
-     <form @submit.prevent="salvar">
+<div class="admin-pages">
+    <PageTitle main="Restaurantes cadastrados"     sub="Food Delivery" />  
 
-          <label>Nome</label>
-              <input type="text" placeholder="Nome" v-model="restaurante.name">
-              <label>Email</label>
-              <input type="email" placeholder="Digite seu melhor email" v-model="restaurante.email">
-              <label>Senha</label>
-              <input type="password" placeholder="Minimo de 6 caracteres" v-model="restaurante.password">
+</div>
 
-              <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
+ <form @submit.prevent="salvar">
 
-          </form>
-          <hr>
+          <label>Restaurante</label>
+          <input type="text" placeholder="Nome do Restaurante" v-model="restaurante.name">
+          <label>Email</label>
+          <input type="email" placeholder="Digite seu melhor email" v-model="restaurante.email">
+          <label>Senha</label>
+          <input type="password" placeholder="Minimo de 6 caracteres" v-model="restaurante.password">
 
-           <table>
+          <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
 
-            <thead>
+      </form>
+      <hr> 
 
-              <tr >
-                <th>NOME</th>
-                <th>EMAIL</th>
+       <table>
 
-              </tr>
+        <thead>
 
-            </thead>
+          <tr >
+            <th>NOME</th>
+            <th>EMAIL</th>         
+          
+          </tr>
 
-            <tbody>
+        </thead>
 
-              <tr  v-for="restaurante of restaurantes" :key="restaurante.id">
+        <tbody>
 
-                <td>{{ restaurante.name }}</td>
-                <td>{{ restaurante.email }}</td>
+          <tr  v-for="restaurante of restaurantes" :key="restaurante.id">
 
-                <td>
-                  <button class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></button>
-                  <button class="lixo"><i class="material-icons">delete_sweep</i></button>
-                </td>
+      
+            <td>{{ restaurante.name }}</td>
+            <td>{{ restaurante.email }}</td>
+          
+            <td>
+              <button class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></button>
+              <button class="lixo"><i class="material-icons">delete_sweep</i></button>
+            </td>
 
-              </tr>
+          </tr>
 
-            </tbody>
+        </tbody>
+      
+      </table>
+      <hr>
 
-          </table>
-          <hr>
+
  </div>
 
 

@@ -6,7 +6,6 @@ export default {
         return http.get('customers')
     },
 
-
     salvar:(usuario) => {
         return http.post('customers', usuario )
     }

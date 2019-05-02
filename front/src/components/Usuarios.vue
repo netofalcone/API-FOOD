@@ -1,9 +1,15 @@
 <template>
+<div>
+    <div >
+        <router-link to="/">   <strong>  <a href=""> Inicio</a> </strong> </router-link>
+        <router-link to="/restaurantes"> <strong><a href="">Restaurantes</a> </strong></router-link>
+        <router-link to="/produtos"> <strong><a href="">Produtos</a> </strong></router-link>
 
-<div>     
+    </div>
+    <hr>
 
-<div class="admin-pages">
-    <PageTitle main="Painel Administrativo"     sub="Food Delivery" />  
+        <div class="admin-pages">
+        <PageTitle main="Usuários"  sub="Cadastrar e listar" />
 
 </div>
 
@@ -37,7 +43,6 @@
 
           <tr  v-for="usuario of usuarios" :key="usuario.id">
 
-      
             <td>{{ usuario.name }}</td>
             <td>{{ usuario.email }}</td>
           
@@ -52,61 +57,47 @@
       
       </table>
       <hr>
-
-
  </div>
-
-
 
 </template>
 
 <script>
 import Usuario from '@/services/usuarios'
-
 import PageTitle from '@/components/PageTitle'
 export default {
 
     name: 'AdminPages',
     components: {PageTitle,},
+      data(){
+        return {
+          usuario: {
+            name:'',
+            email:'',
+            password:''
+          },
 
-  data(){
-    return {
-      usuario: {
-        name:'',
-        email:'',
-        password:''
+          usuarios: []
+        }
       },
-
-      usuarios: []
-    }
-},
-
-
-  mounted(){
-    this.listar()
-   
-  },
-
-
-  methods:{
-
-    listar(){
-       Usuario.listar().then(resposta => {
-      this.usuarios = resposta.data
-    })
-
-    },
-
- salvar(){
-
-      Usuario.salvar(this.usuario).then(resposta =>{
-        this.usuario = {}
-        alert('Usuario salvo com sucesso!')
+      mounted(){
         this.listar()
-      })
+      },
+      methods:{
+        listar(){
+           Usuario.listar().then(resposta => {
+          this.usuarios = resposta.data
+        })
+        },
+         salvar(){
 
-         }     
-}
+              Usuario.salvar(this.usuario).then(resposta =>{
+                this.usuario = {};
+                alert('Usuario salvo com sucesso!');
+                this.listar()
+              })
+
+         }
+      }
  }
 </script>
 
@@ -121,11 +112,7 @@ form {
         margin-left: 150px;
 }
 
-
 .lixo{
         margin-left: 30px;
 }
-
-
-
 </style>

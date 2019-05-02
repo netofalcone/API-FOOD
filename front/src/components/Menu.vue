@@ -2,23 +2,21 @@
 
     <aside class="menu" v-show="isMenuVisible"> 
 
-              <span class="restaurantes"> <h3> Restaurantes </h3> </span>
+  <span class="restaurantes"> <h3> Restaurantes </h3> </span>
 
-            <table class="restaurants">
+<table class="restaurants">
 
-                    <tbody >
+        <tbody >
 
-                      <tr  v-for="restaurant of restaurants" :key="restaurant.id">
-                       <h4> <td >{{restaurant.name}}</td> </h4>
-                       </tr>
+          <tr  v-for="restaurant of restaurants" :key="restaurant.id">
+           <h4> <td >{{restaurant.name}}</td> </h4>
+           </tr>
 
-                    </tbody>
-
-            </table>
-
+        </tbody>
+      
+</table>
 
     </aside>
-
 
 </template>
 
@@ -51,7 +49,7 @@ return{
 <style>
 .menu {
     grid-area:menu;
-    background: linear-gradient(to right, #ffffff, #e0e0e0);
+    background: linear-gradient(to right, #ffffff, #ffffff);
 
     display: flex;
     flex-direction: column;

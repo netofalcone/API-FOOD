@@ -1,18 +1,19 @@
 <template>
 
-    <header class="header">
-        <a class="toggle" @click="toggleMenu" v-if="!hideToggle">
-            <i class="fa fa-lg" :class="icon"></i>
+<header class="header"> 
+    <a class="toggle" @click="toggleMenu" v-if="!hideToggle">
+        <i class="fa fa-lg" :class="icon"></i>
         </a>
-
         <h1 class="title">
-            <router-link to="/">{{title}}</router-link >
-        </h1>
 
+           <router-link to="/">    {{title}}   </router-link > 
+        </h1>
         <UserDropdown v-if="!hideUserDropdown" />
 
-    </header>
 
+
+</header>
+    
 </template>
 
 <script>
@@ -56,14 +57,14 @@ export default {
 
     .title {
         font-size: 1.2em;
-        color:lavender;
+        color:rgb(219, 219, 219);
         font-weight: 100;
         flex-grow: 1;
         text-align: center;
     }
 
     .title a {
-        color: azure;
+        color: rgb(255, 255, 249);
         text-decoration: none;
     }
      .title a:hover {
@@ -74,7 +75,7 @@ export default {
     header.header > a.toggle {
         width: 60px;
         height: 100%;
-        color:azure;
+        color:rgb(166, 255, 0);
         justify-self: flex-start;
         text-decoration: none;
         display: flex;
@@ -85,6 +86,9 @@ export default {
     header.header > a.toggle:hover {
         background-color: rgba(0, 0, 0, 0.2)
     }
+
+
+ 
 
 </style>
 

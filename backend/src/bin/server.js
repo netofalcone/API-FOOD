@@ -6,7 +6,6 @@ const debug = require('debug')('food:server');
 const express = require('express');
 
 
-
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 

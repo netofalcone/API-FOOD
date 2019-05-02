@@ -1,9 +1,9 @@
 <template>
 <div class="user-dropdown"> 
     <div class="user-button"> 
-         <span class ="d-none d-sm-block">{{user.name}} </span>    
+         <span class ="d-none d-sm-block">{{usuario.name}} </span>
          <div class="user-dropdown-img">        
-        <Gravatar :email="user.email" alt="User" />
+        <Gravatar :email="usuario.email" alt="User" />
 
      </div>
      <i class="fa fa-angle-down">  </i>
@@ -12,7 +12,6 @@
 <div class="user-dropdown-content">
     
     <router-link to="/admin">
-
     <i class="fa fa-facogs"> </i> Administração 
     </router-link>
 
@@ -30,7 +29,7 @@ import Gravatar from 'vue-gravatar'
 export default {
     name: 'UserDropdown',
     components: {Gravatar},
-    computed: mapState(['user'])
+    computed: mapState(['usuario'])
 
 }
 </script>
@@ -67,7 +66,6 @@ background-color: rgb(235, 231, 5)}
 
 }
 
-
 .user-dropdown-content {
     position: absolute;
     right: 0px;
@@ -90,13 +88,11 @@ background-color: rgb(235, 231, 5)}
     opacity: 1;
 }
 
-
 .user-dropdown-content a {
     text-decoration: none;
     color: black;
     padding: 10px
 }
-
 
 .user-dropdown-content a:hover {
      text-decoration: none;

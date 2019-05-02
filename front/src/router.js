@@ -11,6 +11,6 @@ export default new Router({
     mode: 'history',
     routes: [
         { path: '/', component: Home},
-         {path: '/restaurants', component: Restaurants},
+        {path: '/restaurants', component: Restaurants},
     ]
 })

@@ -1,63 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import Home from '@/components/Home'
 import AdminPages from '@/components/admin/AdminPages'
-
-import Login from '@/components/Login'
-import Registro from '@/components/Registro'
-
 import Restaurantes from '@/components/Restaurantes'
 import Produtos from '@/components/Produtos'
-
+import Usuarios from '@/components/Usuarios'
+import Auth from '@/components/auth/Auth'
 
 Vue.use (VueRouter);
 
-
 const routes = [
     {
-        name: 'home',
-        path: '/',
-        component: Home
+    name: 'home',
+    path: '/',
+    component: Home
     },
-
-    {
-        name: 'AdminPages',
-        path: '/admin',
-        component: AdminPages
-
+        {
+    name: 'AdminPages',
+    path: '/admin',
+    component: AdminPages
     },
-
     {
-        name: 'login',
-        path: '/login',
-        component: Login,
-    },
-
-    {
-        name: 'registro',
-        path: '/registro',
-        component: Registro,
-    },
-
-    {
-        name: 'Restaurantes',
+        name: 'restaurantes',
         path: '/restaurantes',
         component: Restaurantes
-
     },
-
     {
-        name: 'produto',
-        path: '/produto',
+        name: 'produtos',
+        path: '/produtos',
         component: Produtos
-
     },
-
-]
+    {
+        name: 'usuarios',
+        path: '/usuarios',
+        component: Usuarios
+    },
+    {
+        name: 'auth',
+        path: '/auth',
+        component: Auth
+    },
+];
 
 export default new VueRouter ({
     mode:'history',
     routes: routes
 })
+
+
 

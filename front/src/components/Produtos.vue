@@ -1,80 +1,84 @@
 <template>
 
-<div>
+<div>    
        <div >
-        <router-link to="/">
-            <strong><a href=""> Inicio</a> </strong>
-            <strong><a href="">Restaurantes</a> </strong>
-            <strong><a href="">Produtos</a> </strong>
-        </router-link>
+           <router-link to="/">   <strong>  <a href=""> Inicio</a> </strong> </router-link>
+           <router-link to="/restaurantes"><strong><a href="">Restaurantes</a> </strong></router-link>
+           <router-link to="/usuarios"> <strong> <a href="">Usuários</a> </strong>   </router-link>
        </div>
        <hr>
 
-        <div class="admin-pages"><PageTitle main="Pratos cadastrados"/>
 
-    </div>
+    <div class="admin-pages">
+      <i class="large material-icons">restaurant</i>
+        <PageTitle main="Pratos cadastrados"/>
 
-     <form @submit.prevent="salvar">
+</div>
 
-          <label>Titulo</label>
-              <input type="text" placeholder="Digite um título para o produto" v-model="produto.title">
-              <label>slug</label>
-              <input type="text" placeholder="Digite um identificador único" v-model="produto.slug">
-              <label>descrição</label>
-              <input type="text" placeholder="Minimo de 6 caracteres" v-model="produto.description">
-              <label>price</label>
-              <input type="number" placeholder="Valor do prato" v-model="produto.price">
+ <form @submit.prevent="salvar">
 
-              <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
+    <h1> <label>Nome do prato</label> </h1>
 
-          </form>
-          <hr>
+          <input type="text" placeholder="Digite um nome para o produto" v-model="produto.title">
+          <label>slug</label>
+          <input type="text" placeholder="Digite um identificador único" v-model="produto.slug">
+          <label>descrição</label>
+          <input type="text" placeholder="Minimo de 6 caracteres" v-model="produto.description">
+          <label>preço</label>
+          <input type="number" placeholder="Valor do prato" v-model="produto.price">
 
-           <table>
+          <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
 
-            <thead>
+      </form>
+      <hr> 
 
-              <tr >
-                <th>NOME DO PRATO</th>
-                <th>DESCRIÇÃO</th>
+       <table>
 
-              </tr>
+        <thead>
 
-            </thead>
+          <tr >
+            <th>NOME DO PRATO</th>
+            <th>DESCRIÇÃO</th>         
+          
+          </tr>
 
-            <tbody>
+        </thead>
 
-              <tr  v-for="produto of produtos" :key="produto.id">
+        <tbody>
 
-                <td>{{ produto.title}}</td>
-                <td>{{ produto.description }}</td>
+          <tr  v-for="produto of produtos" :key="produto.id">
 
-                <td>
-                  <button class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></button>
-                  <button class="lixo"><i class="material-icons">delete_sweep</i></button>
-                </td>
+      
+            <td>{{ produto.title}}</td>
+            <td>{{ produto.description }}</td>
+          
+            <td>
+              <button class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></button>
+              <button class="lixo"><i class="material-icons">delete_sweep</i></button>
+            </td>
 
-              </tr>
+          </tr>
 
-            </tbody>
+        </tbody>
+      
+      </table>
+      <hr>
 
-          </table>
-          <hr>
 
  </div>
+
 
 
 </template>
 
 <script>
-import Produtos from '@/services/produtos'
 
+import Produto from '@/services/produtos'
 import PageTitle from '@/components/PageTitle'
-
 export default {
 
-    name: 'produto',
-    components: {PageTitle, Produtos},
+    name: 'Produto',
+    components: {PageTitle, Produto},
 
   data(){
     return {
@@ -101,7 +105,7 @@ export default {
 
     listar(){
        Produto.listar().then(resposta => {
-      this.produto = resposta.data
+      this.produtos = resposta.data
     })
 
     },
@@ -109,7 +113,7 @@ export default {
  salvar(){
 
       Produto.salvar(this.produto).then(resposta =>{
-        this.produto = {};
+        this.produto = {}
         alert('produto salvo com sucesso!')
         this.listar()
       })
@@ -122,12 +126,16 @@ export default {
 <style>
 
 form {
-    color: rgb(61, 61, 61);
+    color: rgb(233, 0, 0);
     margin-left: 130px;
 }
 
 .admin-pages{
         margin-left: 350px;
+}
+
+.admin-pages i {
+        margin-left: 70px;
 }
 
 

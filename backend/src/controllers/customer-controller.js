@@ -7,7 +7,6 @@ const authService = require('../services/auth-service');
 const mongoose = require('mongoose');
 const Customer= mongoose.model('Customer');
 
-
 exports.get = async(req, res, next) => {
     Customer
     .find({}).then(data => {
@@ -15,9 +14,7 @@ exports.get = async(req, res, next) => {
     }).catch(e=> {
         res.status(400).send(e);
     });
-}
-
-
+};
 
 exports.post = async (req, res, next) => {
     let contract = new ValidationContract();
@@ -48,7 +45,6 @@ exports.post = async (req, res, next) => {
         });
     }
 };
-
 
 exports.authenticate = async(req, res, next) => {
     try {

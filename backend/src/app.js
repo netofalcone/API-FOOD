@@ -17,7 +17,6 @@ const Product = require('./models/Product');
 const Customer = require('./models/customer');
 const Order = require('./models/order');
 const Restaurant = require('./models/restaurant');
-const Registro = require('./models/registro');
 
 // Carregar as rotas
 const indexRoute = require('./routes/index-route');
@@ -25,20 +24,19 @@ const productRoute = require('./routes/product-route');
 const restaurantRoute = require('./routes/restaurant-route');
 const customerRoute = require('./routes/customer-route');
 const orderRoute = require('./routes/order-route');
-const registroRoute = require('./routes/registro-route');
-
 
 app.use(bodyParser.json());
 //Todo conteúdo vai ser convertido para json
+
 app.use(bodyParser.urlencoded({ extended: false }));
 //para codificar as urls também
-
 
 // Habilita o CORS
 app.use((req, res, next)=>{
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-access-token');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
 
@@ -47,6 +45,5 @@ app.use('/products', productRoute);
 app.use('/customers', customerRoute);
 app.use('/orders', orderRoute);
 app.use('/restaurants', restaurantRoute);
-app.use('/registros',registroRoute);
 
 module.exports = app;

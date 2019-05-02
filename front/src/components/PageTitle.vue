@@ -1,9 +1,9 @@
 <template>
 
 <div class="page-title">
-
     <h1>  {{main}}   </h1>
     <h2>   {{sub}}   </h2>
+
 
  </div>
     
@@ -24,7 +24,7 @@ export default {
 }
 
 .page-title h2 {
-    color: darkred;
+    color: rgb(255, 0, 55);
     margin-top: 5px;
     font-size: 1.3rem;
 }
