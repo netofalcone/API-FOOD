@@ -6,7 +6,7 @@
 		<Loading v-if="validatingToken" />
 		<Content v-else />
 		<Footer />
-		<Copy/>
+
 
 	</div>
 </template>

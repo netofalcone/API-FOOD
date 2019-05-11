@@ -8,7 +8,7 @@ module.exports = app => {
     app.route('/users')
         .all(app.config.passport.authenticate())
         .post(admin(app.api.user.save))
-        .get(admin(app.api.user.get));
+        .get(app.api.user.get);
 
     app.route('/users/:id')
         .all(app.config.passport.authenticate())
@@ -18,8 +18,8 @@ module.exports = app => {
 
     app.route('/restaurantes')
         .all(app.config.passport.authenticate())
-        .get(admin(app.api.restaurantys.get))
-        .post(admin(app.api.restaurantys.save));
+        .get(app.api.restaurantys.get)
+        .post(app.api.restaurantys.save);
 
     // Cuidado com ordem! Tem que vir antes de /restaurantes/:id
     app.route('/restaurantes/tree')
@@ -29,19 +29,19 @@ module.exports = app => {
     app.route('/restaurantes/:id')
         .all(app.config.passport.authenticate())
         .get(app.api.restaurantys.getById)
-        .put(admin(app.api.restaurantys.save))
-        .delete(admin(app.api.restaurantys.remove));
+        .put(app.api.restaurantys.save)
+        .delete(app.api.restaurantys.remove);
 
     app.route('/produtos')
         .all(app.config.passport.authenticate())
-        .get(admin(app.api.produto.get))
-        .post(admin(app.api.produto.save));
+        .get(app.api.produto.get)
+        .post(app.api.produto.save);
 
     app.route('/produtos/:id')
         .all(app.config.passport.authenticate())
         .get(app.api.produto.getById)
-        .put(admin(app.api.produto.save))
-        .delete(admin(app.api.produto.remove));
+        .put(app.api.produto.save)
+        .delete(app.api.produto.remove);
 
     app.route('/restaurantes/:id/produtos')
         .all(app.config.passport.authenticate())

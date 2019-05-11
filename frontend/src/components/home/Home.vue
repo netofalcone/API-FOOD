@@ -1,7 +1,9 @@
 <template>
 
     <div class="home">
-        <PageTitle icon="fa fa-home" main="Painel de Controle" sub="ifood Delivery"/>
+        <PageTitle icon="fa fa-home" main="Painel de Controle " sub="ifood Delivery"/>
+
+        <router-link to="/cadastro"> <strong> <a href="">Cadastrar Restaurantes ou Produtos</a> </strong>   </router-link><br>
 
         <div class="stat">
             <Stat title="Restaurantes" :value="stat.restaurantes" icon=" fa fa-home" color="#f73100"/>

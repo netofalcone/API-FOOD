@@ -6,7 +6,7 @@ import AdminPages from '@/components/admin/AdminPages'
 import ProdutosByRestaurantys from '@/components/produto/ProdutosByRestaurantys';
 import ProdutoById from '@/components/produto/ProdutoById'
 import Auth from '@/components/auth/Auth'
-
+import Cadastros from '@/components/cadastro/Cadastros'
 import { userKey } from '@/global'
 
 
@@ -23,6 +23,12 @@ const routes = [{
     component: AdminPages,
     meta: { requiresAdmin: true }
 },
+    {
+        name: 'cadastro',
+        path: '/cadastro',
+        component: Cadastros
+    },
+
     {
     name: 'produtosByRestaurantys',
     path: '/restaurantes/:id/produtos',
